@@ -1,9 +1,10 @@
 <template>
+<!-- <Header :subtitle="subtitle"/> -->
+<!-- <h1>Rented Movies</h1> -->
   <div>
-    <!-- <h1>Movies</h1> -->
     <b-pagination
       v-model="currentPage"
-      :total-rows="movies.length"
+      :total-rows="rentedMovies.length"
       :per-page="perPage"
       aria-controls="image-table"
     ></b-pagination>
@@ -12,7 +13,7 @@
       id="image-table"
       hover
       fixed
-      :items="this.movies"
+      :items="this.rentedMovies"
       :fields = "fields"
       small
       :per-page="perPage"
@@ -27,28 +28,32 @@
     </b-table>
     <b-pagination
       v-model="currentPage"
-      :total-rows="movies.length"
+      :total-rows="rentedMovies.length"
       :per-page="perPage"
       aria-controls="image-table"
     ></b-pagination>
-    <!-- <b-form @submit="onSubmit">
+    <b-form @submit="onSubmit">
     <b-button type="submit" variant="primary">Submit</b-button>
-    </b-form> -->
+    </b-form>
   </div>
 </template>
 
 <script>
-
+ // import Header from '@/components/Header.vue';
   import { mapActions, mapState } from 'vuex';
 
   export default {
-    name: 'ImageList',
+    name: 'RentedMovies',
+    // components: {
+    //   Header
 
+    // },
     data() {
       return {
         // fields: ['obj','Movie','Copies','Duration','Reziser','Actors'],
-        fields: ['Naziv','Reziser','Glumac'/*,'actions'*/],
-        items: [],
+        fields: ['Naziv'],//,'Reziser','Glumac'/*,'actions'*/],
+        //items: [],
+//subtitle: '',
         currentPage: 1,
         perPage: 10
       }
@@ -57,9 +62,7 @@
     computed: {
       ...mapState([
         // 'imageIDs'
-        'movies',
-        'privilageAdmin',
-        'privilageModerator',
+        'rentedMovies'
       ])
     },
 
@@ -84,13 +87,13 @@
     
 
     mounted() {
-      
-     // console.log('aaa ' + this.movies[0])
+      // this.subtitle = this.$route.params.name;
+      //console.log('aaa ' + this.movies[0])
       //this.items.push(this.movies[0])
       
       //this.getItem();
      
-      this.items.push(this.movies[0])
+      //this.items.push(this.movies[0])
 
   
       
@@ -104,19 +107,17 @@
         e.preventDefault();
 
         //  this.getItem();
-       // console.log('Film ' + this.movies[5])
+        //console.log('Film ' + this.movies[5])
       },
 
       rowClicked(record, index) {
-        //console.log('Admin ' + this.privilageAdmin + ', Moderator ' + this.privilageModerator)
-        if(this.privilageAdmin == 0 && this.privilageModerator == 0){
+
         // console.log('IME ' + this.movies[0].MName);
         // console.log('film ' + this.movies[0]);
         // const str = record.Naziv.str.replace('/"','')
         const str = record.Naziv.split('"')[1]
-        //  console.log('Record '  + str)
-        this.$router.push({ name: 'Single', params: { id: str } }); //this.movies[1].MName
-        }
+          //console.log('Record '  + str)
+        this.$router.push({ name: 'SingleRented', params: { id: str } }); //this.movies[1].MName
       }
     }
   }

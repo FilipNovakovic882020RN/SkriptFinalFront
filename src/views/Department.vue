@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <Header :subtitle="subtitle"/>
+    <h1>Movies</h1>
+    <!-- <h1>LALAL</h1> -->
     <ImageList />
   </div>
 </template>
@@ -8,7 +10,7 @@
 <script>
   import Header from '@/components/Header.vue';
   import ImageList from '@/components/ImageList.vue';
-  import { mapActions } from 'vuex';
+  import { mapActions,mapState } from 'vuex';
 
   export default {
     name: 'Department',
@@ -24,26 +26,25 @@
             depID: null
         }
     },
-
-    watch: {
-      $route() {
-        this.subtitle = this.$route.params.name;
-        this.depID = this.$route.params.id;
-
-        this.fetchIDsByDepartment(this.depID);
-      }
+    computed: {
+      ...mapState([
+        // 'imageIDs'
+        'token'
+      ])
     },
+
+    
 
     mounted() {
         this.subtitle = this.$route.params.name;
-        this.depID = this.$route.params.id;
-
-        this.fetchIDsByDepartment(this.depID);
+        //this.depID = this.$route.params.id;
+        console.log('TOKENNN ' +this.token )
+        this.fetchDepartments();//this.depID);
     },
 
     methods: {
       ...mapActions([
-        'fetchIDsByDepartment'
+        'fetchDepartments'
       ])
     }
   }

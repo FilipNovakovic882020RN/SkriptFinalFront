@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header :subtitle="subtitle"/>
-     <SingleArt :Naziv="Naziv" :Trajanje="Trajanje" :Reziser="Reziser" :Glumac="Glumac" />
+     <SingleArtRented :Naziv="Naziv" :Trajanje="Trajanje" :Reziser="Reziser" :Glumac="Glumac" />
     <!--<Comments v-if="image" :image="image" /> -->
   </div>
 </template>
@@ -9,18 +9,18 @@
 <script>
 
   import Header from '@/components/Header.vue';
-  import SingleArt from '@/components/SingleArt.vue';
+  import SingleArtRented from '@/components/SingleArtRented.vue';
 
   import { mapActions,mapState } from 'vuex';
 
+
   export default {
-    name: 'Single',
+    name: 'SingleRented',
 
     components: {
-      Header,
-      SingleArt
-      
-    },
+    Header,
+    SingleArtRented
+},
 
     data() {
       return {

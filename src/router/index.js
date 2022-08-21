@@ -6,7 +6,19 @@ import Single from '@/views/Single.vue';
 import Search from '@/views/Search.vue';
 import Register from '@/views/Register.vue';
 import Login from '@/views/Login.vue';
-import ImageList from '@/views/ImageList.vue';
+import UserModify from '@/views/UserModify.vue';
+import AddMovie from '@/views/AddMovie.vue';
+import UserDelete from '@/views/DeleteUser.vue';
+import ModifyGlumac from '@/views/ModifyGlumac.vue';
+import DeleteGlumac from '@/views/DeleteGlumac.vue';
+import ModifyReziser from '@/views/ModifyReziser.vue';
+import DeleteReziser from '@/views/DeleteReziser.vue';
+import DeleteMovie from '@/views/DeleteMovie.vue';
+import RentedMovies from '@/views/RentedMovies.vue';
+import Edit from '@/views/Edit.vue';
+import DepartmentRentedMovies from '@/views/DepartmentRent.vue';
+import SingleRented from '@/views/SingleRented.vue';
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -16,7 +28,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/department/:id/:name',
+    path: '/department',
     name: 'Department',
     component: Department
   },
@@ -25,12 +37,12 @@ const routes = [
     name: 'Single',
     component: Single
   },
-  ,
   {
     path: '/search',
     name: 'Search',
     component: Search
-  },{
+  },
+  {
     path: '/register',
     name: 'Register',
     component: Register
@@ -41,9 +53,64 @@ const routes = [
     component: Login
   },
   {
-    path: '/imageList',
-    name: 'ImageList',
-    component: ImageList
+    path: '/modifyUser',
+    name: 'UserModify',
+    component: UserModify
+  }
+  ,
+  {
+    path: '/deleteUser',
+    name: 'UserDelete',
+    component: UserDelete
+  },
+  {
+    path: '/addMovie',
+    name: 'AddMovie',
+    component: AddMovie
+  },{
+    path: '/deleteMovie',
+    name: 'DeleteMovie',
+    component: DeleteMovie
+  },
+  {
+    path: '/modifyGlumac',
+    name: 'ModifyGlumac',
+    component: ModifyGlumac
+  },
+  {
+    path: '/deleteGlumac',
+    name: 'DeleteGlumac',
+    component: DeleteGlumac
+  },
+  {
+    path: '/modifyReziser',
+    name: 'ModifyReziser',
+    component: ModifyReziser
+  },
+  {
+    path: '/deleteReziser',
+    name: 'DeleteRezise',
+    component: DeleteReziser
+  },
+  {
+    path: '/rentedMovies',
+    name: 'RentedMovies',
+    component: RentedMovies
+  },
+  {
+    path: '/departmentrentedMovies',
+    name: 'DepartmentRentedMovies',
+    component: DepartmentRentedMovies
+  },
+  {
+    path: '/edit',
+    name: 'Edit',
+    component: Edit
+  },
+  {
+    path: '/singleRented',
+    name: 'SingleRented',
+    component: SingleRented
   }
 ];
 

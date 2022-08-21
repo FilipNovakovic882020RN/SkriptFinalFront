@@ -17,7 +17,8 @@
 
       <b-form-checkbox id="admin" v-model="form.admin" :value="true" :unchecked-value="false">Admin</b-form-checkbox>
       <b-form-checkbox id="moderator" v-model="form.moderator" :value="true" :unchecked-value="false">Moderator</b-form-checkbox>
-      
+      <b-form-checkbox id="user" v-model="form.user" :value="true" :unchecked-value="false">User</b-form-checkbox>
+
       <br>
       <b-button type="submit" variant="primary">Submit</b-button>
     </b-form>
@@ -43,7 +44,8 @@
           name: '',
           password: '',
           admin: false,
-          moderator: false
+          moderator: false,
+          user: false
         }
       }
     },
